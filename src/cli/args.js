@@ -1,5 +1,11 @@
 const parseArgs = () => {
-    // Write your code here 
-};
+  const regexp = /^--/
 
-parseArgs();
+  process.argv.forEach((prop, i, args) => {
+    if (regexp.test(prop)) {
+      console.log(`${prop.replace(regexp, '')} is ${args[i + 1]}`)
+    }
+  })
+}
+
+parseArgs()
